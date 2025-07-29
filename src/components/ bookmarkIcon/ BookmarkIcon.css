@@ -1,0 +1,23 @@
+.bookmark-wrapIcon{
+   transition: transform 0.4s ease;
+   width: 32px;
+   height: 40px;
+   background-color: unset;
+   border: none;
+}
+
+.bookmark-wrapIcon:active{
+  transform: rotate(45deg);
+}
+.bookmark-wrapIcon svg{
+   width: 100%;
+   height: 100%;
+
+}
+
+.bookmark-wrapIcon svg path:first-child {
+ fill: #72716f;
+}
+.bookmark-wrapIcon.active svg path:first-child {
+ fill: #ec8f03;
+}

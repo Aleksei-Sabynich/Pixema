@@ -1,0 +1,23 @@
+
+.posts__message-wrap{
+  margin-top: 80px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  img{
+   width: 70%;
+   object-fit: contain;
+
+  }
+}
+.posts__message{
+   position: absolute;
+   word-spacing: 20px;
+   letter-spacing: 8px;
+   font-size: 25px;
+   font-weight: 700;
+   font-style: italic;
+   color: #000; 
+}

@@ -1,0 +1,18 @@
+
+.posts__wrap{
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 25px;
+   margin-bottom: 50px;
+}
+
+.pagination{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   column-gap: 50px;
+}
+.pagination p {
+ color: #ffffffd7;
+}
+   

@@ -1,0 +1,18 @@
+.regButtons_wrapper{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 20px;
+}
+.regButton {
+   padding: 13px 17px;
+   background-color: #6f07f6d7;
+   color: #ffffffd7;
+   transition: all 0.3s ease;
+   border-radius: 10px;
+   border: 2px solid #6f07f6d7
+}
+.regButton:hover {
+   background-color: #cb05a3;
+   border-color: #ffffffd7;
+}

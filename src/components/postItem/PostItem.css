@@ -1,0 +1,43 @@
+.post__item{
+   display: flex;
+   flex-direction: column;
+   row-gap: 10px;
+   background-color: #4a4848;
+   border-radius: 20px;
+   padding: 10px;
+   box-shadow: 0px 0px 4px 2px #6516db;
+   position: relative;
+}
+.post__item:hover{
+   box-shadow: 0px 0px 4px 2px #6516db;
+   background-color: #6516db;
+}
+.post__img{
+   border-radius: 15px;
+   aspect-ratio: 3 / 4;
+   width: 100%;
+   overflow: hidden;
+ }
+.post__img img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+.post__title{
+   color: #ffffffd7;
+}
+.post__bookmarkIcon{
+   content: '';
+    position: absolute;
+    right: 7px;
+    top: 5px;
+
+}
+.post__content{
+   display: flex;
+   justify-content: space-between;
+   margin-top: auto
+}
+.post__year{
+   color: #a89e9ed7;
+}

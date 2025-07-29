@@ -1,0 +1,15 @@
+.userDropdown {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: #6516db;
+
+}
+.userDropdown:hover {
+   background-color: #f68e078b;
+}

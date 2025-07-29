@@ -1,0 +1,84 @@
+
+.post{
+   padding: 30px;
+   background-color: #4d4c4c;
+   border-radius: 20px;
+   background-image: url(https://www.kinogallery.com/img/wallpaper/kinogallery-wallpaper-0148081001475484851-1024x768.jpg);
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: right bottom;
+   position: relative;
+}
+.post::after{
+   content: "";
+   position: absolute;
+   inset: 0;
+   background-color: #4d4c4cd6;
+   border-radius: 20px;
+   z-index: 1;
+}
+.post > * {
+   position: relative;
+   z-index: 2;
+}
+.post::before{
+   content: "";
+   position: fixed;
+   inset: 0;
+   background-color: #0b0b0bb5;
+   z-index: -1;
+}
+.post__header{
+   margin-bottom: 20px;
+   color: #ffffffd7;
+   display: flex;
+   justify-content: space-between;
+}
+.post__header-buttons{
+   display: flex;
+   column-gap: 40px;
+}
+.post__header-buttonsClose{
+   font-size: 26px;
+   padding: 4px 6px;
+   border-radius: 2px;
+   height: 40px;
+   color: #000;
+   font-weight: 600;
+   background-color: #4d4c4c;
+}
+.post__header-buttonsClose:active{
+   font-size: 26px;
+   padding: 4px 6px;
+   border-radius: 2px;
+   height: 40px;
+   color: #000;
+   font-weight: 600;
+   background-color: #4d4c4c;
+}
+.post__main{
+   display: flex;
+   column-gap: 40px;
+}
+
+.post__descriptions{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.post__description{
+   color: #ffffff8d
+}
+.post__description span{
+   color: #ffffff
+}
+.post__description-tagline{
+   margin-bottom: 30px;
+}
+.post__description-tagline span{
+   font-style: italic;
+}
+.post__description-overview span{
+   font-size: 18px;
+   font-weight: 500;
+}
