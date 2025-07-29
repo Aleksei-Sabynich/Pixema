@@ -15,7 +15,7 @@ export  function AppRoutes() {
               <Route path="/:postId" element={< PostById/>} />
               <Route path="/trends" element={< Trends/>} />
               <Route path="/favorites" element={< Favorites/>} />
-              <Route path="/settings" element={< Layout/>} />
+              {/* <Route path="/settings" element={< Layout/>} /> */}
               <Route path="/approved" element={<ApprovedPage />} />
             </Route>
         </Routes>
