@@ -32,3 +32,30 @@
    left: 30px;
    bottom: 30px;
 }
+
+.spinner__wrapper{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 60px;
+}
+.spinner__img {
+   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuPBmua5QZFNGkhjMWjbIwes806C25_VMVTQ&s);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: inherit;
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    margin-bottom: 15px;
+    animation: spin 6s linear infinite
+}
+@keyframes spin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.spinner__text{
+   font-size: 40px;
+   color: #979160d7;
+}
