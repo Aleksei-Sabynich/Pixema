@@ -3,13 +3,13 @@
    width: 100%;
    height: 100%;
    object-fit: cover;
-   background-color: #000;
+   background-color: var(--primary-bg-color);
    display: flex;
    justify-content: center;
    align-items: center;
 }
 .image-fallback__text{
-   color: #ffffffd7;
+   color: var(--text-color);
    font-size: 18px;
 
 }

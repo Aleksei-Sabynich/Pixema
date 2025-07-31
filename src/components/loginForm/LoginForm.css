@@ -10,7 +10,7 @@
 .form__login{
    width: 40%;
    margin: 0 auto;
-   background-color: #1e1d1e;
+   background-color: var(--primary-bg-color);
    border: 1px solid #fff;
    display: flex;
    flex-direction: column;

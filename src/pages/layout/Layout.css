@@ -3,9 +3,8 @@
    left: 0;
    top: 0;
    width: 100%;
-   background-color: #000;
-   padding: 20px;
-   z-index: 2;
+   background-color: var(--primary-bg-color);
+   z-index: 3;
 }
 .header__container{
    max-width: 1440px;
@@ -14,22 +13,25 @@
    justify-content: space-between;
    align-items: center;
    column-gap: 30px;
+   position: relative;
+   padding: 20px;
+
 }
 .header__logo{
    font-size: 26px;
    font-weight: 600;
    line-height: 30px;
-   color: #ffffffd7;
+   color: var(--text-color);
    letter-spacing: 5px;
 }
 .header__logo span{
-   color: #6f07f6d7;
+   color: var(--second-bg-color);
 }
 .header__search {
   max-width: 1000px;
   width: 100%;
   box-sizing: border-box;
-  background-color: #4d4c4cee;
+  background-color: var(--gray-color);
   background-image: 
     linear-gradient(rgba(62, 61, 61, 0.5), rgba(64, 63, 63, 0.5)),
     url(https://a-static.besthdwallpaper.com/cool-skull-background-wallpaper-1680x1050-98429_5.jpg);
@@ -40,7 +42,7 @@
   border-radius: 10px;
   border: none;
   outline: none;
-  color: #ffffffd7;
+  color: var(--text-color);
   font-size: 20px;
 }
 .main{
@@ -59,7 +61,6 @@
    height: 520px;
    background-image: url(/src/assets/poster.jpg);
    background-repeat: no-repeat;
-   z-index: -1;
    background-size: cover;
 }
 .main__container{
@@ -69,7 +70,7 @@
    display: flex;
    column-gap: 40px;
    margin-top: 122px;
-   padding: 30px;
+   padding: 0px;
 }
 .list__item-wrapper{
    display: flex;
@@ -78,10 +79,10 @@
    transition: all 0.3s;
 }
 .list__item-wrapper.active path{
-   fill: #6f07f6d7; 
+   fill: var(--second-bg-color); 
 }
 .list__item-wrapper.active p{
-   color: #6f07f6d7; 
+   color: var(--second-bg-color); 
 }
 .list__item-wrapper:hover path{
    fill: #f68e078b; 
@@ -100,7 +101,7 @@
    height: 100%;
 }
 .list__item-text{
-   color: #ffffffd7;
+   color: var(--text-color);
 }
 
 .footer__container{
@@ -109,7 +110,7 @@
    padding: 0 20px;
 }
 .footer__cop{
-    color: #ffffffd7;
+    color: var(--text-color);
 }
 
 .outlet{

@@ -2,15 +2,15 @@
    display: flex;
    flex-direction: column;
    row-gap: 10px;
-   background-color: #4a4848;
+   background-color: var(--gray-color);
    border-radius: 20px;
    padding: 10px;
-   box-shadow: 0px 0px 4px 2px #6516db;
+   box-shadow: 0px 0px 4px 2px var(--second-bg-color);
    position: relative;
 }
 .post__item:hover{
-   box-shadow: 0px 0px 4px 2px #6516db;
-   background-color: #6516db;
+   box-shadow: 0px 0px 4px 2px var(--second-bg-color);
+   background-color: var(--second-bg-color);
 }
 .post__img{
    border-radius: 15px;
@@ -24,7 +24,7 @@
    object-fit: cover;
 }
 .post__title{
-   color: #ffffffd7;
+   color: var(--text-color);
 }
 .post__bookmarkIcon{
    content: '';

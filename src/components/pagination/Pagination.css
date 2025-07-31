@@ -7,15 +7,15 @@
 .pagination__arrow{
    font-size: 16px;
    font-weight: 600;
-   color: #ffffffd7;
+   color: var(--text-color);
    letter-spacing: 3px;
    transition: all 0.3s;
-   background-color: #6f07f6d7;
+   background-color: var(--second-bg-color);
 }
 .pagination__arrow:hover,
 .pagination__btn:hover {
-   background-color: #ffffffd7;
-   color: #6f07f6d7 ;
+   background-color: var(--text-color);
+   color: var(--second-bg-color) ;
 }
 .pagination__prev{
    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
@@ -28,10 +28,10 @@
 .pagination__btn{
    padding: 4px 10px;
    border-radius: 30%;
-   color: #ffffffd7;
+   color: var(--text-color);
    font-size: 16px;
    font-weight: 600;
-   background-color: #6f07f6d7;
+   background-color: var(--second-bg-color);
 }
 .pagination__btn.active{
     background-color: #fc00ded7;

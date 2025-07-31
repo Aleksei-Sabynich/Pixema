@@ -1,8 +1,6 @@
 .userMenu_page{
-   position: fixed;
-   left: 0;
+   position: absolute;
    top: 0;
-   bottom: 0;
    right: 0;
    z-index: 3;
    display: flex;
@@ -11,16 +9,15 @@
 }
 .userMenu_wrap{
    width: 300px;
-   aspect-ratio: 1 / 1.2;
-   background-color: rgb(67, 66, 66);
+   background-color: var(--second-bg-color);
    padding: 20px;
    position: relative;
-   top: 120px;
-   color: #fff;
+   top: 88px;
+   color: var(--text-color);
 }
 .userMenu_wrap-img{
    border-radius: 10px;
-   background-color: rgb(58, 54, 54);
+   background-color: var(--primary-bg-color);
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -28,14 +25,17 @@
    padding: 15px;
    gap: 15px;
    margin-bottom: 30px;
+   position: relative;
          
 }
 .userMenu_wrap-img-ico{
-   width: 45px;
-   height: 45px;
+   width: 75px;
+   height: 75px;
+   background-color: var(--primary-bg-color);
+   text-align: center;
 }
 .userMenu_wrap-img-ico img{
-   width: 100%;
+   width: 75%;
    height: 100%;
 }
 .userMenu_wrap-img-text{
@@ -48,6 +48,15 @@
    border-radius: 15px;
 
 }
+.userMenu__theme-button{
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   top: 5px;
+   right: 10px;
+   background-color:var(--primary-bg-color);
+   border: none;
+}
 .userMenu_wrap-menu-item{
    display: flex;
    column-gap: 8px;
@@ -58,7 +67,9 @@
    border: none;
    outline: none;
 }
-.userMenu_wrap-menu-item:hover{
-  color: #1153d6;
-
+.menu-item-text{
+   color: var(--text-color);
+}
+.userMenu_wrap-menu-item:hover p{
+  color: #ff0000;
 }

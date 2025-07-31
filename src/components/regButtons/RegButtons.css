@@ -6,13 +6,13 @@
 }
 .regButton {
    padding: 13px 17px;
-   background-color: #6f07f6d7;
-   color: #ffffffd7;
+   background-color: var(--second-bg-color);
+   color: var(--text-color);
    transition: all 0.3s ease;
    border-radius: 10px;
-   border: 2px solid #6f07f6d7
+   border: 2px solid var(--second-bg-color)
 }
 .regButton:hover {
    background-color: #cb05a3;
-   border-color: #ffffffd7;
+   border-color: var(--text-color);
 }

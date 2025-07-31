@@ -71,7 +71,7 @@ export const TmdbApi = createApi({
          query: () => `/authentication/token/new?api_key=${API_KEY}`,
       }),
 
-      getUserInfo: builder.query<{ username:string, avatar: { tmdb: {avatar_path: string | null;} }}, void >({
+      getUserInfo: builder.query<{ username:string,name:string, avatar: { tmdb: {avatar_path: string | null;} }}, void >({
       query: () => ({
             url: `https://api.themoviedb.org/3/account?api_key=${API_KEY}&session_id=${sessionId}`,
          }),

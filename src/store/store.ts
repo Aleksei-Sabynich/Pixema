@@ -6,6 +6,8 @@ import paginationReducer from './slices/paginationSlice'
 import loginButtonReducer from './slices/loginButtonSlice'
 import isAuthorizedReducer from './slices/isAuthorizedSlice'
 import userDropDownReducer from './slices/userDropDownSlice'
+import favoritesMoveReducer from './slices/favoritesMoveSlice'
+import themereducer from './slices/themeSlice'
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ export const store = configureStore({
     loginButton : loginButtonReducer,
     isAuthorized: isAuthorizedReducer,
     userDropDown: userDropDownReducer,
+    favoritesMove: favoritesMoveReducer,
+    theme: themereducer,
     [TmdbApi.reducerPath]: TmdbApi.reducer
    },
    middleware:(getDefaultMiddleware) => 

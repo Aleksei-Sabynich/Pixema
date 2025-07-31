@@ -5,7 +5,8 @@ import { useAppSelector } from '../../store/store'
 import './Favorites.css'
 
 export const Favorites =() => {
-   const ids = JSON.parse(localStorage.getItem('favorites') || '[]')
+   const ids = useAppSelector(state => state.favoritesMove.favoritesMove)
+   console.log(ids)
    const currentPage = useAppSelector(state => state.pagination.currentPage)
 
    const postsPerPage = 10

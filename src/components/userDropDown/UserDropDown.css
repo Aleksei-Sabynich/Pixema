@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-color: #6516db;
+  background-color: var(--second-bg-color);
 
 }
 .userDropdown:hover {
