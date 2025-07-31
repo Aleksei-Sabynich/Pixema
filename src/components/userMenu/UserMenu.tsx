@@ -8,8 +8,8 @@ import { useGetUserInfoQuery } from '../../query/TmdbApi'
 
 export const UserMenu =()=> {
 
-  const {data} =  useGetUserInfoQuery()
    const isOpen = useAppSelector(state => state.userDropDown.isOpen)
+   const {data} =  useGetUserInfoQuery()
    const dispatch = useAppDispatch()
    const navigate = useNavigate()
 
@@ -64,8 +64,6 @@ export const UserMenu =()=> {
                            <path d="M13.3202 3.26247V2.19104" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                            <path d="M13.3202 12.8572V11.7858" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                            </svg>
-
-
                         </div>
                         <p className='menu-item-text'>Выйти из аккаунта </p>
                      </button>
