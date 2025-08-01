@@ -17,7 +17,6 @@ export  function AppRoutes() {
               <Route path="/trends" element={< Trends/>} />
               <Route path="/favorites" element={< Favorites/>} />
               <Route path="/succesAuthorized" element={< SuccesAuthorized/>} />
-              {/* <Route path="/settings" element={< Layout/>} /> */}
               <Route path="/approved" element={<ApprovedPage />} />
             </Route>
         </Routes>

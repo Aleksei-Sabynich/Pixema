@@ -1,8 +1,8 @@
 import './Layout.css'
 import { RegButtons } from "../../components/regButtons/RegButtons"
-import { Link, NavLink, Outlet } from "react-router-dom"
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from '../../store/store'
-import { useEffect, useState } from 'react'
+import { useEffect, useState} from 'react'
 import { setSearch } from '../../store/slices/searchSlice'
 import { setCurrentPage } from '../../store/slices/paginationSlice'
 import { LoginForm } from '../../components/loginForm/LoginForm'
@@ -15,21 +15,30 @@ export const Layout = () => {
    
    const isOpenUserMenu = useAppSelector((state) => state.userDropDown.isOpen);
    const authorizedState = useAppSelector((state) => state.isAuthorized.authorizedState);
-   const searchValue = useAppSelector((state) => state.search.search);
    const loginButtonState = useAppSelector(state => state.loginButton.isActive)
-   const [localSearch, setLocalSearch] = useState(searchValue);
+   
+   const location = useLocation();
+   const currentRout = location.pathname === '/' ? 'home' : location.pathname.slice(1) as 'trends' | 'favorites' ;
+   const searchValue = useAppSelector((state) => state.search[currentRout]);
+   
+   const [localSearch, setLocalSearch] = useState(searchValue || '')
+
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      dispatch(setSearch(localSearch));
+      dispatch(setSearch({ rout: currentRout, searchValue: localSearch}));
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [localSearch,dispatch]);
+  }, [currentRout, localSearch ]);
 
-  const pageNumberReset = () => {
-   dispatch(setCurrentPage(1))
-  }
+   const pageNumberReset = () => {
+      dispatch(setCurrentPage(1))
+      dispatch(setSearch({rout:'home', searchValue:''}))
+      dispatch(setSearch({rout:'favorites', searchValue:''}))
+      setLocalSearch('')
+   }
+
    return (
       <>
          <header className="header">
@@ -37,7 +46,7 @@ export const Layout = () => {
                <Link  to = '/'className="header__logo">
                   <p><span>PIX</span>EMA</p>
                </Link>
-               <input className="header__search" type='search' placeholder="Поиск..." value={localSearch} onChange={(event)=>{setLocalSearch(event.target.value)}}/>
+               <input className="header__search" type='search' placeholder="Поиск..." value={localSearch} onChange={(e) => setLocalSearch (e.target.value)}/>
                { authorizedState?  <UserDropDown/> : <RegButtons/>}
                 {isOpenUserMenu && <UserMenu/>}
             </div>
