@@ -1,0 +1,73 @@
+.main{
+   background-repeat: no-repeat;
+   background-position: top;
+   margin-top: 122px;
+   min-height: calc(100vh - 150px);
+   position: relative;
+}
+.main::before{
+   content: '';
+   position: absolute;
+   left: 120px;
+   top: -80px;
+   width: calc(100% - 120px);
+   height: 520px;
+   background-image: url(/src/assets/poster.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.main__container{
+   max-width: 1440px;
+   margin: 0 auto;
+   padding: 0 20px;
+   display: flex;
+   column-gap: 40px;
+   margin-top: 122px;
+   padding: 0px;
+}
+.nav{
+   z-index: 1;
+}
+.list__item-wrapper{
+   display: flex;
+   column-gap: 25px;
+   margin-bottom: 30px;
+   transition: all 0.3s;
+}
+.list__item-wrapperBtn{
+   background-color: var(--primary-bg-color);
+   border: none;
+   p{
+      font-size: 16px;
+      font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+   }
+}
+.list__item-wrapper.active path{
+   fill: var(--second-bg-color); 
+}
+.list__item-wrapper.active p{
+   color: var(--second-bg-color); 
+}
+.list__item-wrapper:hover path{
+   fill: #f68e078b; 
+}
+.list__item-wrapper:hover p{
+   color: #f68e078b; 
+}
+
+.list__item-icon{
+   width: 30px;
+   height: 30px;
+}
+
+.list__item-icon svg{
+   width: 100%;
+   height: 100%;
+}
+.list__item-text{
+   color: var(--text-color);
+}
+.outlet{
+   margin-top: 300px;
+   flex-grow: 1;
+}

@@ -1,0 +1,45 @@
+.header{
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   background-color: var(--primary-bg-color);
+   z-index: 3;
+}
+.header__container{
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   column-gap: 100px;
+   position: relative;
+   padding: 20px;
+
+}
+.header__logo{
+   font-size: 26px;
+   font-weight: 600;
+   line-height: 30px;
+   color: var(--text-color);
+   letter-spacing: 5px;
+}
+.header__logo span{
+   color: var(--second-bg-color);
+}
+.header__search {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--gray-color);
+  background-image: 
+    linear-gradient(rgba(62, 61, 61, 0.5), rgba(64, 63, 63, 0.5)),
+    url(https://a-static.besthdwallpaper.com/cool-skull-background-wallpaper-1680x1050-98429_5.jpg);
+  background-repeat: no-repeat;
+  background-position: 0px 0px, 0px -446px;
+  background-size: cover, cover;
+  padding: 13px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font-size: 20px;
+}

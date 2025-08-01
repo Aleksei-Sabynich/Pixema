@@ -1,0 +1,9 @@
+.sortForm{
+   display: flex;
+   flex-direction: column;
+   background-color: var(--second-bg-color);
+   padding: 20px;
+   border-radius: 20px;
+   gap: 10px;
+   color: var(--text-color)
+}

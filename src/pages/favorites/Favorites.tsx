@@ -9,7 +9,7 @@ export const Favorites =() => {
      const searchValue = useAppSelector((state) => state.search.favorites); 
    
    const ids = useAppSelector(state => state.favoritesMove.favoritesMove)
-   const filterIds = ids.filter(el => el.title.toLowerCase().includes(searchValue.toLowerCase()))
+   const filterIds = ids.filter(el => el.title?.toLowerCase().includes(searchValue.toLowerCase()||''))
 
    const currentPage = useAppSelector(state => state.pagination.currentPage)
 
