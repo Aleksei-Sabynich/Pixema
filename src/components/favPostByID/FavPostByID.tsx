@@ -5,7 +5,7 @@ import { useState } from "react";
 import { BookmarkIcon } from "../ bookmarkIcon/ BookmarkIcon";
 
 type FavPostByIDProps = {
-  id: number
+  id: number,
 }
 
 
@@ -23,7 +23,7 @@ export const FavPostByID = ({id}:FavPostByIDProps) => {
                   : <>
                         <img  src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="title" onError={() => setErrorImage(true)}/>
                         <div className='post__bookmarkIcon' >
-                                             <BookmarkIcon  id={id} />
+                                             <BookmarkIcon  id={data.id} title={data.title} />
                         </div>
                      </>
                }

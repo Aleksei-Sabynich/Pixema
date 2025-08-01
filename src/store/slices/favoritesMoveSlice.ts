@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction} from "@reduxjs/toolkit";
 
 interface FavoritesMove{
-  favoritesMove: number[]
+  favoritesMove: {id: number, title:string}[]
 }
 
 const initialState: FavoritesMove = {
@@ -13,16 +13,17 @@ export const favoritesMoveSlice = createSlice({
   name: 'favoritesMove',
   initialState,
   reducers: {
-    toggleFavorite: (state, action: PayloadAction<number>) => {
-      const id = action.payload;
+    toggleFavorite: (state, action: PayloadAction<{id: number, title:string}>) => {
+      const id = action.payload.id;
+      const title = action.payload.title
       const favorites = state.favoritesMove;
 
-      if (favorites.includes(id)) {
-        const newFavorites = favorites.filter(item => item !== id);
+      if (favorites.find(el => el.id === id )) {
+        const newFavorites = favorites.filter(item => item.id !== id);
         state.favoritesMove = newFavorites; 
         localStorage.setItem('favorites', JSON.stringify(newFavorites));
       } else {
-        favorites.push(id);
+        favorites.push({id: id, title:title});
         localStorage.setItem('favorites', JSON.stringify(favorites));
       }
     }

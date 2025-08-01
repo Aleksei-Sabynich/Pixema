@@ -27,7 +27,7 @@ export const PostItem = ({post:{title,id, vote_average, release_date,poster_path
                   :<>
                      <img  src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="title" onError={() => setErrorImage(true)}/>
                      <div className='post__bookmarkIcon' >
-                        <BookmarkIcon  id={id} />
+                        <BookmarkIcon  id={id} title ={title}/>
                      </div>
                   </>
                }

@@ -4,7 +4,7 @@ import { toggleFavorite } from "../../store/slices/favoritesMoveSlice"
 import { useAppDispatch, useAppSelector } from "../../store/store"
 
 
-export const  BookmarkIcon =({ id }: { id: number })=> {
+export const  BookmarkIcon =({ id, title}: { id: number, title:string })=> {
    const dispatch = useAppDispatch()
 
    let [isActiveSvg, setIsActiveSvg] = useState<'active' | ''>('')
@@ -12,7 +12,7 @@ export const  BookmarkIcon =({ id }: { id: number })=> {
    const favoritesMove = useAppSelector(state => state.favoritesMove.favoritesMove)
 
    const checkInFavorites = (id:number) => {
-      return favoritesMove.includes(id)
+      return favoritesMove.find(el => el.id ===id)
    }
   
   
@@ -22,7 +22,7 @@ export const  BookmarkIcon =({ id }: { id: number })=> {
                            e.preventDefault(); 
                            e.stopPropagation();
                            setIsActiveSvg( isActiveSvg ===''? isActiveSvg ='active' : isActiveSvg ='');
-                           dispatch(toggleFavorite(id))
+                           dispatch(toggleFavorite({id, title}))
                            }
                         }>
                 <svg width="26" height="40" viewBox="0 0 26 40" fill="none" xmlns="http://www.w3.org/2000/svg">
