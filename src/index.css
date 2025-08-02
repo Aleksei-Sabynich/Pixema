@@ -17,10 +17,10 @@ body.dark {
   --blackout-fitst: #0b0b0bb5;
   --blackout-second: #4d4c4cb8;
 
-
-
 }
+
 :root {
+ 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -28,6 +28,7 @@ body.dark {
 }
 html {
   box-sizing: border-box;
+  width: 100vw;
 }
 *,
 *::after,

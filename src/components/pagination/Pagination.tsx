@@ -12,10 +12,15 @@ export const Pagination = ({ page }: {page:number|undefined}) => {
    const maxPage = page !== undefined ? (page > 500 ? 500 : page) : 0;
 
    const nextPage = ( ) => {
-         currentPage !== maxPage && dispatch(setCurrentPage(currentPage+1))
+        if (currentPage !== maxPage){
+          dispatch(setCurrentPage(currentPage+1))
+        }
    }
+   
    const previousPage = ( ) => {
-      currentPage >1 && dispatch(setCurrentPage(currentPage-1))
+      if (currentPage >1){
+        dispatch(setCurrentPage(currentPage-1))
+      }
    }
    const jumpByPage  = (event: React.MouseEvent<HTMLButtonElement> ) => {
        const text = event.currentTarget.textContent ?? ''
@@ -61,7 +66,15 @@ export const Pagination = ({ page }: {page:number|undefined}) => {
 
    return( page !== undefined &&
        <div className="pagination">
-          <button className="pagination__arrow pagination__prev" onClick={previousPage}>Предыдущая...</button>
+          <button className=" pagination__prev" onClick={previousPage}>
+            <svg width="109" height="29" viewBox="0 0 109 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M55 21.2H109V7.2L55 7.2L55 21.2Z" fill="black"/>
+            <path d="M55 28.2V0.199997L0 14.2L55 28.2Z" fill="black"/>
+            </svg>
+
+
+
+          </button>
             {createPageButtons().map((btn, index) => (
             <button  key={index} className={`pagination__btn ${btn === currentPage ? 'active' : ''}`}
                      onClick={jumpByPage}
@@ -70,7 +83,13 @@ export const Pagination = ({ page }: {page:number|undefined}) => {
                {btn}
             </button>
             ))}
-          <button className='pagination__arrow pagination__next' onClick={nextPage}>Следующая...</button>
+          <button className=' pagination__next' onClick={nextPage}>
+           <svg width="109" height="29" viewBox="0 0 109 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M54 21.2H0L0 7.2L54 7.2L54 21.2Z" fill="black"/>
+            <path d="M54 28.2V0.199997L109 14.2L54 28.2Z" fill="black"/>
+            </svg>
+
+          </button>
       </div>
    )
 }

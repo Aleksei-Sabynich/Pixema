@@ -6,16 +6,15 @@ import emailIcon from '../../assets/email.svg'
 import tmdbIcon from '../../assets/tmdb.svg'
 import { useLazyGetTokenQuery } from '../../query/TmdbApi'
 import { LoginFormButton } from '../loginFormButton/LoginFormButton'
-import { useAppDispatch } from '../../store/store'
-import { changeIsActive } from '../../store/slices/loginButtonSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 export const LoginForm = () => {
 
-   const dispatch = useAppDispatch()
    const [getToken, {isLoading, isError}] = useLazyGetTokenQuery()
+   const navigate = useNavigate()
 
    const handleTMDBLogin = async () => {
       const { data} = await getToken();
@@ -27,7 +26,7 @@ export const LoginForm = () => {
 
    return(
    <>     
-      <div className="form__wrapper" onClick={()=>dispatch(changeIsActive(false))}>  
+      <div className="form__wrapper" onClick={() => navigate(-1)} >  
          <form  className="form__login" action=""  onClick={(e)=>e.stopPropagation()}>
              {  isLoading 
                ?  <div className='spinner__wrapper' > 
@@ -39,7 +38,7 @@ export const LoginForm = () => {
                            <div className="spinner__text">Токен не получен</div>
                         </div>
                         :<>
-                           <button className='form__login-closeBtn' type='button' onClick={()=>dispatch(changeIsActive(false))}>Х</button>
+                           <button className='form__login-closeBtn' type='button' onClick={() => navigate(-1)}>Х</button>
                            <LoginFormButton bgColor="#2105ee" text="Войти через Вконтакте ( в разработке )" icon= {vkIcon} />
                            <LoginFormButton bgColor="#ed0808" text="Войти через Google ( в разработке )" icon= {googleIcon} />
                            <LoginFormButton bgColor="#0579ec" text="Войти через FaceBook ( в разработке )" icon= {facebookIcon} />

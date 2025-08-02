@@ -32,9 +32,9 @@
   background-color: var(--gray-color);
   background-image: 
     linear-gradient(rgba(62, 61, 61, 0.5), rgba(64, 63, 63, 0.5)),
-    url(https://a-static.besthdwallpaper.com/cool-skull-background-wallpaper-1680x1050-98429_5.jpg);
+    url(/accect/bg.jpg);
   background-repeat: no-repeat;
-  background-position: 0px 0px, 0px -446px;
+  background-position: 0px 0px, 0px center;
   background-size: cover, cover;
   padding: 13px 20px;
   border-radius: 10px;
@@ -42,4 +42,8 @@
   outline: none;
   color: var(--text-color);
   font-size: 20px;
+}
+
+@media (max-width: 1023px) {
+
 }

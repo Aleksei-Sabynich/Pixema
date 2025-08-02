@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../store/store"
 export const  BookmarkIcon =({ id, title}: { id: number, title:string })=> {
    const dispatch = useAppDispatch()
 
-   let [isActiveSvg, setIsActiveSvg] = useState<'active' | ''>('')
+   const [_isActiveSvg, setIsActiveSvg] = useState<'active' | ''>('')
    
    const favoritesMove = useAppSelector(state => state.favoritesMove.favoritesMove)
 
@@ -21,7 +21,7 @@ export const  BookmarkIcon =({ id, title}: { id: number, title:string })=> {
                         onClick={(e) => {
                            e.preventDefault(); 
                            e.stopPropagation();
-                           setIsActiveSvg( isActiveSvg ===''? isActiveSvg ='active' : isActiveSvg ='');
+                           setIsActiveSvg(prev => (prev === '' ? 'active' : ''));
                            dispatch(toggleFavorite({id, title}))
                            }
                         }>

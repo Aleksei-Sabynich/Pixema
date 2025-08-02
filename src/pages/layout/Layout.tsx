@@ -1,8 +1,9 @@
 import {  useState } from 'react';
 import './Layout.css'
 import { Header } from './header/Header'
-import { Main } from './main/main'
 import { useAppSelector } from '../../store/store';
+import { SideBar } from './sideBar/SideBar';
+import { Main } from './main/Main';
 
 
 export const Layout = () => {
@@ -15,7 +16,8 @@ export const Layout = () => {
    return (
       <>
          <Header  localSearch={localSearch} setLocalSearch={setLocalSearch} />
-         <Main cleanInputSearch={setLocalSearch} />
+         <SideBar cleanInputSearch={setLocalSearch}/>
+         <Main  />
          <footer className="footer footer__container">
             <p className='footer__cop'>© 2025 PIXEMA</p>
          </footer>   

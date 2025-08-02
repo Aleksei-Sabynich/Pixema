@@ -34,7 +34,7 @@ export const PostItem = ({post:{title,id, vote_average, release_date,poster_path
          </div> 
          <h3 className="post__title">{title}</h3>
          <div className='post__content'>
-            <p className="post__year">{release_date}</p>
+            <p className="post__year">{release_date.slice(0,4)}</p>
             <p className="post__year"> оценка {vote_average.toFixed(1)}</p>
          </div>
       </Link>
