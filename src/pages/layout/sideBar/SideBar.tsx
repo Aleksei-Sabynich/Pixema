@@ -9,9 +9,10 @@ import { SortMenu } from '../../../components/sortMenu/SortMenu';
 
 interface SideBarProps{
    cleanInputSearch:(value:string)=>void
+   navMobileState:boolean
 }
 
-export const SideBar = ({cleanInputSearch}:SideBarProps) => {
+export const SideBar = ({cleanInputSearch, navMobileState}:SideBarProps) => {
 
    const [sortButtonState, setSortButtonState] = useState<boolean>(false)
    const dispatch = useAppDispatch();
@@ -24,7 +25,7 @@ export const SideBar = ({cleanInputSearch}:SideBarProps) => {
    }
 
    return (
-      <nav className='nav'>
+      <nav className={`nav ${navMobileState ? 'isOpenMobile': '' }`}>
                <ul className='list'>
                   <NavLink to ='/'className={({ isActive }) => isActive ? "list__item-wrapper active" : `list__item-wrapper`} onClick={pageNumberReset}> 
                      <div className='list__item-icon'>

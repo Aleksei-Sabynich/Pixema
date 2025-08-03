@@ -74,3 +74,8 @@
 .userMenu_wrap-menu-item:hover p{
   color: #ff0000;
 }
+@media (max-width: 800px) {
+   .userMenu_wrap{
+      top: 58px;
+   }  
+}

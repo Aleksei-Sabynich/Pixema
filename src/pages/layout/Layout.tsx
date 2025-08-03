@@ -12,11 +12,17 @@ export const Layout = () => {
    const searchValue = useAppSelector((state) => state.search[currentRout]);
    const [localSearch, setLocalSearch] = useState(searchValue || '')
 
+   const [navMobileState, setNavMobileState] = useState<boolean>(false)
+
    
    return (
       <>
-         <Header  localSearch={localSearch} setLocalSearch={setLocalSearch} />
-         <SideBar cleanInputSearch={setLocalSearch}/>
+         <Header  localSearch={localSearch}
+                  setLocalSearch={setLocalSearch} 
+                  navMobileState={navMobileState}
+                  setNavMobileState={setNavMobileState} 
+         />
+         <SideBar cleanInputSearch={setLocalSearch} navMobileState={navMobileState}/>
          <Main  />
          <footer className="footer footer__container">
             <p className='footer__cop'>© 2025 PIXEMA</p>

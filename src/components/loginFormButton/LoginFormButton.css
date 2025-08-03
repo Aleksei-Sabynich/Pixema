@@ -21,3 +21,17 @@
    text-align: center;
    color: #ffffffd7;
 }
+
+@media (max-width: 800px) {
+   .formButton{
+      padding: 7px 10px;
+   }
+   .formButton__wrapIcon{
+      width: 18px;
+      height: 18px;
+   }
+   .formButton__text{
+      font-size: 12px;
+   
+   }
+}
