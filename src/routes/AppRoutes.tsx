@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Layout } from "../pages/layout/Layout";
 import { Posts } from "../pages/posts/Posts";
 import { PostById } from "../pages/postById/PostById";
@@ -11,7 +11,7 @@ import { LoginForm } from "../components/loginForm/LoginForm";
 
 export  function AppRoutes() {
   return (
-    <BrowserRouter>
+
         <Routes>
             <Route path="/" element={< Layout/>} >
               <Route index  element={< Posts/>} />
@@ -24,6 +24,5 @@ export  function AppRoutes() {
               <Route path="/singin" element={<LoginForm/>} />
             </Route>
         </Routes>
-    </BrowserRouter>
   )
 }
