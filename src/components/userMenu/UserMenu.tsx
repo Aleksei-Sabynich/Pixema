@@ -2,15 +2,19 @@ import { useNavigate } from 'react-router'
 import { useAppDispatch, useAppSelector } from '../../store/store'
 import './UserMenu.css'
 import { offAuthorized } from '../../store/slices/isAuthorizedSlice'
-import { closeUserDropDown } from '../../store/slices/userDropDownSlice'
 import { useGetUserInfoQuery } from '../../query/TmdbApi'
 import { useEffect } from 'react'
 import { toggleTheme } from '../../store/slices/themeSlice'
 
 
-export const UserMenu =()=> {
+interface UserMenuProps{
+   closeMenu: (value:boolean)=>void;
+}
+
+
+export const UserMenu =( {closeMenu}:UserMenuProps)=> {
+
    const theme = useAppSelector(state => state.theme.mode)
-   const isOpen = useAppSelector(state => state.userDropDown.isOpen)
    const {data} =  useGetUserInfoQuery()
    const dispatch = useAppDispatch()
    const navigate = useNavigate()
@@ -23,7 +27,7 @@ export const UserMenu =()=> {
             !target.closest('.userMenu_wrap') &&
             !target.closest('.userDropdown')
          ) {
-            dispatch(closeUserDropDown());
+            closeMenu(false);
          }
       };
       document.addEventListener('click', handleClick);
@@ -33,12 +37,12 @@ export const UserMenu =()=> {
 
    const exitButtonClick = () => {
       dispatch(offAuthorized())
-      dispatch(closeUserDropDown())
+       closeMenu(false)
       navigate('/')
    }
 
    return(
-         <div className={`userMenu_page ${isOpen ? 'open' : ''}`}>
+         <div className="userMenu_page">
                <div  className="userMenu_wrap"  >
                   <div className="userMenu_wrap-img">
                      <div className='userMenu_wrap-img-ico'>

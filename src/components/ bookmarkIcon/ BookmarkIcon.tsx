@@ -1,4 +1,3 @@
-import { useState } from "react"
 import './ BookmarkIcon.css'
 import { toggleFavorite } from "../../store/slices/favoritesMoveSlice"
 import { useAppDispatch, useAppSelector } from "../../store/store"
@@ -6,8 +5,6 @@ import { useAppDispatch, useAppSelector } from "../../store/store"
 
 export const  BookmarkIcon =({ id, title}: { id: number, title:string })=> {
    const dispatch = useAppDispatch()
-
-   const [_isActiveSvg, setIsActiveSvg] = useState<'active' | ''>('')
    
    const favoritesMove = useAppSelector(state => state.favoritesMove.favoritesMove)
 
@@ -21,7 +18,6 @@ export const  BookmarkIcon =({ id, title}: { id: number, title:string })=> {
                         onClick={(e) => {
                            e.preventDefault(); 
                            e.stopPropagation();
-                           setIsActiveSvg(prev => (prev === '' ? 'active' : ''));
                            dispatch(toggleFavorite({id, title}))
                            }
                         }>

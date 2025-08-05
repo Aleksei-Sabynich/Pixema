@@ -13,14 +13,6 @@
    margin-bottom: 30px;
    transition: all 0.3s;
 }
-.list__item-wrapperBtn{
-   background-color: var(--primary-bg-color);
-   border: none;
-   p{
-      font-size: 16px;
-      font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-   }
-}
 .list__item-wrapper.active path{
    fill: var(--second-bg-color); 
 }
@@ -62,11 +54,11 @@
    transition: 0.4s;
 }
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
    .nav{
       top: 58px;
    }
    nav.isOpenMobile{
-      top: 58px;
+      top: 40px;
    }  
 }

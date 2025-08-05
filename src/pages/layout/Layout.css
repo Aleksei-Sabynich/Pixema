@@ -1,14 +1,15 @@
 
 .footer__container{
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
     height: 40px;
    margin: 0 auto;
    padding: 0 20px;
 }
 .footer__cop{
     color: var(--text-color);
+}
+@media (max-width: 600px) {
+    .footer__container p {
+        font-size: 13px;
+    }
 }
 

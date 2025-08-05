@@ -10,8 +10,8 @@ export const Layout = () => {
 
    const currentRout = location.pathname === '/' ? 'home' : location.pathname.slice(1) as 'trends' | 'favorites' ;
    const searchValue = useAppSelector((state) => state.search[currentRout]);
-   const [localSearch, setLocalSearch] = useState(searchValue || '')
 
+   const [localSearch, setLocalSearch] = useState(searchValue || '')
    const [navMobileState, setNavMobileState] = useState<boolean>(false)
 
    

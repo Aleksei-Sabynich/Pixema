@@ -4,17 +4,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import searchReducer from '../store/slices/searchSlice'
 import paginationReducer from './slices/paginationSlice'
 import isAuthorizedReducer from './slices/isAuthorizedSlice'
-import userDropDownReducer from './slices/userDropDownSlice'
 import favoritesMoveReducer from './slices/favoritesMoveSlice'
 import themereducer from './slices/themeSlice'
-import paramsSortReducer from './slices/paramsSort'
+import paramsSortReducer from './slices/paramsSortSlice'
 
 export const store = configureStore({
   reducer: {
     search : searchReducer,
     pagination : paginationReducer,
     isAuthorized: isAuthorizedReducer,
-    userDropDown: userDropDownReducer,
     favoritesMove: favoritesMoveReducer,
     theme: themereducer,
     paramsSort:paramsSortReducer,

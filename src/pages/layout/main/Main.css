@@ -2,9 +2,6 @@
 .main__container{
    padding: 0px 20px;
    margin-left: 350px;
-   display: grid;
-   
-   
 }
 .main__content-background{
    position: relative;
@@ -26,17 +23,18 @@
 }
 
 @media (max-width: 1350px) {
-   .outlet{
-      padding: 0 20px;
+
+   .main__content-background{
+      top:30px;
    }
 }
+
 @media (max-width: 1023px) {
 
    .main__container{
       display: grid;
       margin-left: 0px;
       width: 100%;
-     
    }
    .outlet{
       padding:0;
@@ -44,8 +42,15 @@
    }
 }
 @media (max-width: 800px) {
-
+   .main__container{
+      padding: 0px 10px;
+   }
    .main__content-background{
       top:58px;
+   }
+}
+@media (max-width: 600px) {
+   .main__content-background{
+      top:40px;
    }
 }

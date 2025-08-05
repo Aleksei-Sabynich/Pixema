@@ -13,3 +13,15 @@
 .userDropdown:hover {
    background-color: #f68e078b;
 }
+
+@media (max-width: 600px) {
+   .userDropdown {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+    svg{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

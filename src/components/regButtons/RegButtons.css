@@ -26,5 +26,15 @@
    .regButton {
       padding: 5px 8px;
    }
- 
+}
+@media (max-width: 600px) {
+   .regButtons_wrapper{
+      gap: 5px;
+   }
+   .regButton {
+      padding: 1px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 12px;
+   }
 }

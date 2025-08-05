@@ -2,9 +2,8 @@ import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 import { setCurrentPage } from '../../../store/slices/paginationSlice';
 import { setSearch } from '../../../store/slices/searchSlice';
-import { useState } from 'react';
 import { useAppDispatch } from '../../../store/store';
-import { SortMenu } from '../../../components/sortMenu/SortMenu';
+import { toggleSotrParams } from '../../../store/slices/paramsSortSlice';
 
 
 interface SideBarProps{
@@ -14,7 +13,6 @@ interface SideBarProps{
 
 export const SideBar = ({cleanInputSearch, navMobileState}:SideBarProps) => {
 
-   const [sortButtonState, setSortButtonState] = useState<boolean>(false)
    const dispatch = useAppDispatch();
 
    const pageNumberReset = () => {
@@ -22,6 +20,8 @@ export const SideBar = ({cleanInputSearch, navMobileState}:SideBarProps) => {
       dispatch(setSearch({rout:'home', searchValue:''}))
       dispatch(setSearch({rout:'favorites', searchValue:''}))
       cleanInputSearch('')
+      dispatch(toggleSotrParams(''))
+      
    }
 
    return (
@@ -51,16 +51,6 @@ export const SideBar = ({cleanInputSearch, navMobileState}:SideBarProps) => {
                      </div>
                      <p className='list__item-text'>Favorites</p>
                   </NavLink>
-                  <button  className='list__item-wrapper list__item-wrapperBtn' onClick={()=>setSortButtonState(!sortButtonState)}> 
-                     <div className='list__item-icon'>
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M26.2269 16.5829C26.2269 16.1306 26.38 15.6784 26.38 15.0753C26.38 14.4723 26.38 14.0201 26.2269 13.5678L29.4404 11.005C29.7465 10.7035 29.7465 10.402 29.5934 10.1005L26.533 4.82411C26.38 4.67336 26.074 4.5226 25.6149 4.67336L21.7893 6.18089C21.0242 5.57788 20.106 5.12562 19.1879 4.67336L18.5758 0.753767C18.7288 0.301507 18.2697 0 17.9637 0H11.8428C11.5367 0 11.0777 0.301507 11.0777 0.603014L10.4656 4.67336C9.54749 4.97486 8.78238 5.57788 7.86424 6.18089L4.1917 4.67336C3.73263 4.5226 3.42659 4.67336 3.12048 4.97486L0.0600315 10.2512C-0.0929911 10.402 0.0600315 10.8542 0.366077 11.1558L3.57955 13.5678C3.57955 14.0201 3.42653 14.4723 3.42653 15.0753C3.42653 15.6784 3.42653 16.1306 3.57955 16.5829L0.366077 19.1457C0.0600315 19.4473 0.0600315 19.7487 0.213054 20.0503L3.27351 25.3266C3.42653 25.4774 3.73251 25.6281 4.19164 25.4774L8.0172 23.9699C8.78232 24.5729 9.70045 25.0251 10.6186 25.4774L11.2307 29.397C11.2307 29.6985 11.5367 30 11.9958 30H18.1167C18.4228 30 18.8818 29.6984 18.8818 29.397L19.4939 25.4774C20.412 25.0251 21.3302 24.5729 22.0953 23.9699L25.9208 25.4774C26.2269 25.6281 26.686 25.4774 26.839 25.1758L29.8995 19.8995C30.0525 19.598 30.0525 19.1457 29.7464 18.9949L26.2269 16.5829ZM14.9033 20.3517C11.9959 20.3517 9.54749 17.9397 9.54749 15.0753C9.54749 12.211 11.9959 9.79898 14.9033 9.79898C17.8107 9.79898 20.2591 12.211 20.2591 15.0753C20.2591 17.9397 17.8107 20.3517 14.9033 20.3517Z" fill="#4D4C4C" fill-opacity="0.933333"/>
-                        </svg>
-                     </div>
-                     <p className='list__item-text'>Sorting</p>
-                  </button>
-                  {sortButtonState && <SortMenu/>  }
-
                </ul>
       </nav>
    )
