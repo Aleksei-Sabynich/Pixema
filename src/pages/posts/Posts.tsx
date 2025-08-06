@@ -1,18 +1,17 @@
 import './Posts.css'
 import { PostItem } from "../../components/postItem/PostItem";
-import { useGetPopularQuery, useGetPostsQuery } from "../../query/TmdbApi";
+import { useGetPostsQuery } from "../../query/TmdbApi";
 import { useAppSelector } from '../../store/store';
 import { Pagination } from '../../components/pagination/Pagination';
 import { StatusModalWindow } from '../../components/statusModalWindow/StatusModalWindow';
 
 export const Posts = () => {
-  const searchValue = useAppSelector((state) => state.search.search);
+  
+  const searchValue = useAppSelector((state) => state.search.home);
   const currentPage = useAppSelector((state) => state.pagination.currentPage);
 
 
-  const { data, isLoading, error } = searchValue
-                                                ? useGetPostsQuery({search:searchValue , page:currentPage})
-                                                : useGetPopularQuery(currentPage)
+  const { data, isLoading, error } =  useGetPostsQuery({search:searchValue, page:currentPage})
   
 
 

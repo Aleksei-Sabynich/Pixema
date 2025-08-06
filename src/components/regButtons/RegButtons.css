@@ -4,15 +4,37 @@
    align-items: center;
    gap: 20px;
 }
+
 .regButton {
    padding: 13px 17px;
-   background-color: #6f07f6d7;
-   color: #ffffffd7;
+   background-color: var(--second-bg-color);
+   color: var(--text-color);
    transition: all 0.3s ease;
    border-radius: 10px;
-   border: 2px solid #6f07f6d7
+   border: 2px solid var(--second-bg-color);
+   line-height: 24px;
+   
 }
 .regButton:hover {
    background-color: #cb05a3;
-   border-color: #ffffffd7;
+   border-color: var(--text-color);
+}
+@media (max-width: 1023px) {
+ .regButtons_wrapper{
+      gap: 10px;
+   }
+   .regButton {
+      padding: 5px 8px;
+   }
+}
+@media (max-width: 600px) {
+   .regButtons_wrapper{
+      gap: 5px;
+   }
+   .regButton {
+      padding: 1px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 12px;
+   }
 }

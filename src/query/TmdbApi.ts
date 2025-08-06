@@ -48,10 +48,18 @@ export const TmdbApi = createApi({
    endpoints: (builder) => ({
 
       getPosts: builder.query<GetPostResponseWithPages, {search:string, page:number}>({
-         query: ({search,page}) => `/search/movie?api_key=${API_KEY}&language=ru-RU&query=${encodeURIComponent(search)}&page=${page}`,
-         
-         transformResponse: transformWithPages,
+         query: ({search,page}) => {
+
+            if  ( search.trim() !== ''){
+              return `/search/movie?api_key=${API_KEY}&language=ru-RU&query=${encodeURIComponent(search)}&page=${page}`;
+            }
+            else{
+               return `/movie/popular?api_key=${API_KEY}&language=ru-RU&page=${page}`;   
+            }
+         },
+         transformResponse: transformWithPages
       }),
+
 
       getPopular: builder.query<GetPostResponseWithPages, number>({
          query: (page) => `/movie/popular?api_key=${API_KEY}&language=ru-RU&page=${page}`,
@@ -71,20 +79,27 @@ export const TmdbApi = createApi({
          query: () => `/authentication/token/new?api_key=${API_KEY}`,
       }),
 
-      getUserInfo: builder.query<{ username:string, avatar: { tmdb: {avatar_path: string | null;} }}, void >({
+      getUserInfo: builder.query<{ username:string,name:string, avatar: { tmdb: {avatar_path: string | null;} }}, void >({
       query: () => ({
             url: `https://api.themoviedb.org/3/account?api_key=${API_KEY}&session_id=${sessionId}`,
          }),
       }),
 
+    getSortedMovies: builder.query< GetPostResponseWithPages, { sortBy: string; page: number }>({
+      query: ({ sortBy, page }) =>
+        `discover/movie?api_key=${API_KEY}&language=ru-RU&sort_by=${sortBy}&page=${page}&vote_count.gte=100`,
+      transformResponse: transformWithPages,
+    }),
+
+
    }),
 })
 export const { useGetPostsQuery, 
-               useGetPopularQuery,
                useGetPostsByIdQuery,
                useGetTopRatedMoviesQuery,
                useLazyGetTokenQuery,
-               useGetUserInfoQuery
+               useGetUserInfoQuery,
+               useGetSortedMoviesQuery,
             
             } = TmdbApi
 

@@ -1,39 +1,76 @@
 .pagination{
    display: flex;
    justify-content: center;
+   align-items: center;
    gap: 10px;
    font-size: 16px;
+   margin-bottom: 50px;
 }
-.pagination__arrow{
-   font-size: 16px;
-   font-weight: 600;
-   color: #ffffffd7;
-   letter-spacing: 3px;
-   transition: all 0.3s;
-   background-color: #6f07f6d7;
-}
-.pagination__arrow:hover,
-.pagination__btn:hover {
-   background-color: #ffffffd7;
-   color: #6f07f6d7 ;
-}
-.pagination__prev{
-   clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-   padding: 5px 10px 5px 70px;
-}
+
+.pagination__prev,
 .pagination__next{
-   clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
-   padding: 5px 70px 5px 10px;
+    background-color: var(--primary-bg-color);
+    border: none;
+}
+.pagination__prev path,
+.pagination__next path{
+   fill: var(--second-bg-color);
+}
+.pagination__prev:hover path,
+.pagination__next:hover path{
+  fill: var(--text-color);
+}
+
+.pagination__btn:hover{
+   background-color: var(--text-color);
+   color: var(--second-bg-color) ;
 }
 .pagination__btn{
    padding: 4px 10px;
    border-radius: 30%;
-   color: #ffffffd7;
+   color: var(--text-color);
    font-size: 16px;
    font-weight: 600;
-   background-color: #6f07f6d7;
+   background-color: var(--second-bg-color);
+   border: none;
 }
 .pagination__btn.active{
-    background-color: #fc00ded7;
+    background-color: #fb0adfd7;
+}
+
+@media (max-width: 900px) {
+   .pagination{
+      gap: 7px;
+   }
+    .pagination__prev,
+    .pagination__next {
+        width: 80px;
+        height: 30px;
+        svg{ 
+         width: 100%;
+         height: 100%;
+        }
+    }
+    .pagination__btn{
+      height: 30px;
+      width: 30px;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 0px;
+    }
+
+}
+@media (max-width: 600px) {
+   .pagination{
+      gap: 2px;
+   }
+    .pagination__prev,
+    .pagination__next {
+        display: none;
+    }
+    .pagination__btn{
+      height: 20px;
+      width: 22px;
+    }
 }
 

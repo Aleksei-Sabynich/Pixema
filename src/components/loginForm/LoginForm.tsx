@@ -5,18 +5,16 @@ import facebookIcon from '../../assets/facebook.svg'
 import emailIcon from '../../assets/email.svg'
 import tmdbIcon from '../../assets/tmdb.svg'
 import { useLazyGetTokenQuery } from '../../query/TmdbApi'
-import { StatusModalWindow } from '../statusModalWindow/StatusModalWindow'
 import { LoginFormButton } from '../loginFormButton/LoginFormButton'
-import { useAppDispatch } from '../../store/store'
-import { changeIsActive } from '../../store/slices/loginButtonSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 export const LoginForm = () => {
 
-   const dispatch = useAppDispatch()
    const [getToken, {isLoading, isError}] = useLazyGetTokenQuery()
+   const navigate = useNavigate()
 
    const handleTMDBLogin = async () => {
       const { data} = await getToken();
@@ -25,25 +23,33 @@ export const LoginForm = () => {
       }
    };
 
-   if (isLoading) {
-        return <StatusModalWindow text='Загрузка...'/>
-    }
-    
-   if (isError) {
-         return <StatusModalWindow text='Токен не получен'/>
-   }
-
 
    return(
-      <div className="form__wrapper" onClick={()=>dispatch(changeIsActive(false))}>
+   <>     
+      <div className="form__wrapper" onClick={() => navigate(-1)} >  
          <form  className="form__login" action=""  onClick={(e)=>e.stopPropagation()}>
-            <button className='form__login-closeBtn' type='button' onClick={()=>dispatch(changeIsActive(false))}>Х</button>
-            <LoginFormButton bgColor="#2105ee" text="Войти через Вконтакте" icon= {vkIcon} />
-            <LoginFormButton bgColor="#ed0808" text="Войти через Google" icon= {googleIcon} />
-            <LoginFormButton bgColor="#0579ec" text="Войти через FaceBook" icon= {facebookIcon} />
-            <LoginFormButton bgColor="#4e5052" text="Войти через Email" icon= {emailIcon} />
-            <LoginFormButton bgColor="#7402ee" text="Войти через TMDb" icon= {tmdbIcon} action={handleTMDBLogin}  />
+             {  isLoading 
+               ?  <div className='spinner__wrapper' > 
+                     <div className="spinner__img" />
+                     <div className="spinner__text">Загрузка...</div>
+                  </div>
+               : isError
+                        ?<div className='spinner__wrapper' > 
+                           <div className="spinner__text">Токен не получен</div>
+                        </div>
+                        :<>
+                           <button className='form__login-closeBtn' type='button' onClick={() => navigate(-1)}>Х</button>
+                           <LoginFormButton bgColor="#2105ee" text="Войти через Вконтакте ( в разработке )" icon= {vkIcon} />
+                           <LoginFormButton bgColor="#ed0808" text="Войти через Google ( в разработке )" icon= {googleIcon} />
+                           <LoginFormButton bgColor="#0579ec" text="Войти через FaceBook ( в разработке )" icon= {facebookIcon} />
+                           <LoginFormButton bgColor="#4e5052" text="Войти через Email ( в разработке )" icon= {emailIcon} />
+                           <LoginFormButton bgColor="#7402ee" text="Войти через TMDb" icon= {tmdbIcon} action={handleTMDBLogin}  />
+                        </>
+             }
          </form>
+
       </div>
+   
+   </>
    )
 }

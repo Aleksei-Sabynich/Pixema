@@ -1,10 +1,35 @@
+
+body.light {
+ --primary-bg-color: #796d6d;
+  --second-bg-color: #d24d4d;
+  --gray-color: #602626;
+  --text-color: #f8ec0bd7;
+  --blackout-fitst: #796d6da5;
+  --blackout-second: #d24d4da6;
+}
+
+
+body.dark {
+  --primary-bg-color: #000;
+  --second-bg-color: #6f07f6;
+  --gray-color: #4a4848;
+  --text-color: #ffffffd7;
+  --blackout-fitst: #0b0b0bb5;
+  --blackout-second: #4d4c4cb8;
+
+}
+
 :root {
+ 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
 }
-html {
+html,body, #root {
   box-sizing: border-box;
+  height: 100%;
+
 }
 *,
 *::after,
@@ -26,7 +51,7 @@ a {
 }
 
 body{
-  background-color: #000;
+  background-color: var(--primary-bg-color);
 }
 button{
   cursor: pointer;

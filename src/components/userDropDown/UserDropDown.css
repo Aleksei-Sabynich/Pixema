@@ -7,9 +7,21 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-color: #6516db;
+  background-color: var(--second-bg-color);
 
 }
 .userDropdown:hover {
    background-color: #f68e078b;
+}
+
+@media (max-width: 600px) {
+   .userDropdown {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+    svg{
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

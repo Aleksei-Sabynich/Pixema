@@ -1,0 +1,56 @@
+
+.main__container{
+   padding: 0px 20px;
+   margin-left: 350px;
+}
+.main__content-background{
+   position: relative;
+    left: -40px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 1 / 0.5;
+}
+.main__content-background.dark{
+    background-image: url(https://fullhdoboi.ru/wp-content/uploads/_ph/4/205975298.jpg);
+}
+.main__content-background.light{
+    background-image: url(https://weareyoungmoney.com/wp-content/uploads/Pirates-of-the-Caribbean-6-main.jpg);
+}
+.outlet{
+   margin-top: -12vh;
+   flex-grow: 1;
+}
+
+@media (max-width: 1350px) {
+
+   .main__content-background{
+      top:30px;
+   }
+}
+
+@media (max-width: 1023px) {
+
+   .main__container{
+      display: grid;
+      margin-left: 0px;
+      width: 100%;
+   }
+   .outlet{
+      padding:0;
+      margin-top: -10vh;
+   }
+}
+@media (max-width: 800px) {
+   .main__container{
+      padding: 0px 10px;
+   }
+   .main__content-background{
+      top:58px;
+   }
+}
+@media (max-width: 600px) {
+   .main__content-background{
+      top:40px;
+   }
+}

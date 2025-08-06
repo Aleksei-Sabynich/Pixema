@@ -15,7 +15,7 @@ export const isAuthorizedSlice = createSlice({
        state.authorizedState = action.payload;
       },
       offAuthorized: state => {
-        state.authorizedState = false,
+        state.authorizedState = false;
         localStorage.removeItem('session_id')
       },
    }

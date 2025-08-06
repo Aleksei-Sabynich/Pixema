@@ -2,33 +2,59 @@ import { useNavigate } from 'react-router'
 import { useAppDispatch, useAppSelector } from '../../store/store'
 import './UserMenu.css'
 import { offAuthorized } from '../../store/slices/isAuthorizedSlice'
-import { closeUserDropDown } from '../../store/slices/userDropDownSlice'
 import { useGetUserInfoQuery } from '../../query/TmdbApi'
+import { useEffect } from 'react'
+import { toggleTheme } from '../../store/slices/themeSlice'
 
 
-export const UserMenu =()=> {
+interface UserMenuProps{
+   closeMenu: (value:boolean)=>void;
+}
 
-  const {data} =  useGetUserInfoQuery()
-   const isOpen = useAppSelector(state => state.userDropDown.isOpen)
+
+export const UserMenu =( {closeMenu}:UserMenuProps)=> {
+
+   const theme = useAppSelector(state => state.theme.mode)
+   const {data} =  useGetUserInfoQuery()
    const dispatch = useAppDispatch()
    const navigate = useNavigate()
 
+
+   useEffect(() => {
+   const handleClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+         if (
+            !target.closest('.userMenu_wrap') &&
+            !target.closest('.userDropdown')
+         ) {
+            closeMenu(false);
+         }
+      };
+      document.addEventListener('click', handleClick);
+      return () => document.removeEventListener('click', handleClick);
+   }, []);
+
+
    const exitButtonClick = () => {
       dispatch(offAuthorized())
-      dispatch(closeUserDropDown())
+       closeMenu(false)
       navigate('/')
    }
 
    return(
-         <div className={`userMenu_page ${isOpen ? 'open' : ''}`} onClick={() => dispatch(closeUserDropDown())}>
-               <div  className="userMenu_wrap" onClick={(e) => e.stopPropagation()} >
+         <div className="userMenu_page">
+               <div  className="userMenu_wrap"  >
                   <div className="userMenu_wrap-img">
-                  <div className='userMenu_wrap-img-ico'>
-                     <img src={`https://image.tmdb.org/t/p/w185${data?.avatar.tmdb.avatar_path}`} alt="" />
-                  </div>
-                  <p className='userMenu_wrap-img-name'> {data?.username}</p>
-                  <p className='userMenu_wrap-img-text'> Синхронизируйте данные Chrome на всех устройствах</p>
-                  <button className='userMenu_wrap-img-btn'> Включить синхронизацию</button>
+                     <div className='userMenu_wrap-img-ico'>
+                        <img src={`https://image.tmdb.org/t/p/w185${data?.avatar.tmdb.avatar_path}`} alt="" />
+                     </div>
+                     <p className='userMenu_wrap-img-name'> {data?.name}</p>
+                     <p className='userMenu_wrap-img-name'> {data?.username}</p>
+                     <p className='userMenu_wrap-img-text'> Синхронизируйте данные Chrome</p>
+                     <button className='userMenu_wrap-img-btn'> Включить синхронизацию</button>
+                      <button className='userMenu__theme-button ' type='button' onClick={()=>dispatch(toggleTheme())}>
+                        { theme === 'dark' ?  <img src="src/assets/dark.svg" alt="" /> : <img src="src/assets/ligth.svg" alt="" />}
+                     </button>
                   </div>
                   <div className='userMenu_wrap-menu '>
                      <button className='userMenu_wrap-menu-item'>
@@ -54,7 +80,7 @@ export const UserMenu =()=> {
                         </div>
                         <p className='menu-item-text'>Управление аккаунтом Google</p>
                      </button>
-                     <button className='userMenu_wrap-menu-item' onClick={exitButtonClick}>
+                     <button className='userMenu_wrap-menu-item   close__userMenu' onClick={exitButtonClick}>
                         <div className='menu-item-svg'>
                            <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                            <path d="M7.44812 7.5H15.9301" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -64,8 +90,6 @@ export const UserMenu =()=> {
                            <path d="M13.3202 3.26247V2.19104" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                            <path d="M13.3202 12.8572V11.7858" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                            </svg>
-
-
                         </div>
                         <p className='menu-item-text'>Выйти из аккаунта </p>
                      </button>

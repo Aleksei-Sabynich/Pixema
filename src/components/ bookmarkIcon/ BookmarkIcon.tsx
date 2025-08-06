@@ -1,47 +1,24 @@
-import { useState } from "react"
 import './ BookmarkIcon.css'
+import { toggleFavorite } from "../../store/slices/favoritesMoveSlice"
+import { useAppDispatch, useAppSelector } from "../../store/store"
 
-export const  BookmarkIcon =({ id }: { id: number })=> {
 
-   let [isActiveSvg, setIsActiveSvg] = useState<'active' | ''>('')
+export const  BookmarkIcon =({ id, title}: { id: number, title:string })=> {
+   const dispatch = useAppDispatch()
    
-   const getFavorites = () => {
-      const raw = localStorage.getItem('favorites')
-      return raw ? JSON.parse(raw) : []
-   }
+   const favoritesMove = useAppSelector(state => state.favoritesMove.favoritesMove)
 
-   const checkToFavorites = () => {
-      const favorites = getFavorites()
-      if (favorites.includes(id)) {  
-         return true
-      }
+   const checkInFavorites = (id:number) => {
+      return favoritesMove.find(el => el.id ===id)
    }
-   const addToFavorites = () => {
-      const favorites = getFavorites()
-      if (!favorites.includes(id)) {
-         favorites.push(id)
-         localStorage.setItem('favorites', JSON.stringify(favorites))
-      }
-   }
-   const removeFromFavorites = () => {
-      const favorites = getFavorites().filter((idItem:number) => id !== idItem)
-      localStorage.setItem('favorites', JSON.stringify(favorites))
-   }
-   const toggleFavorite = () => {
-      const favorites = getFavorites()
-      if (favorites.includes(id)) {
-         removeFromFavorites()
-      } else {
-         addToFavorites()
-      }
-   }
+  
+  
    return(
-      <button  className={ checkToFavorites()? `bookmark-wrapIcon active` : 'bookmark-wrapIcon' }
+      <button  className={ checkInFavorites(id)? `bookmark-wrapIcon active` : 'bookmark-wrapIcon' }
                         onClick={(e) => {
                            e.preventDefault(); 
                            e.stopPropagation();
-                           setIsActiveSvg( isActiveSvg ===''? isActiveSvg ='active' : isActiveSvg ='');
-                           toggleFavorite()
+                           dispatch(toggleFavorite({id, title}))
                            }
                         }>
                 <svg width="26" height="40" viewBox="0 0 26 40" fill="none" xmlns="http://www.w3.org/2000/svg">

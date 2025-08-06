@@ -27,7 +27,7 @@ export const ApprovedPage = () => {
           if (data.session_id) {
             localStorage.setItem('session_id', data.session_id);
             dispach(onAuthorized(true))
-            navigate('/trends'); 
+            navigate('/succesAuthorized'); 
           } else {
             console.error('Ошибка создания сессии:', data);
           }
