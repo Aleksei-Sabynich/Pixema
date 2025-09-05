@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { toggleSotrParams } from '../../store/slices/paramsSortSlice'
 import { useAppDispatch } from '../../store/store'
-import './sortMenuItem.css'
+import './SortMenuItem.css'
 import { setCurrentPage } from '../../store/slices/paginationSlice'
 
 interface SortMenuItemProps{
