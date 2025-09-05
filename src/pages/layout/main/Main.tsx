@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import './main.css'
+import './Main.css'
 import { useAppSelector } from '../../../store/store'
 
 
