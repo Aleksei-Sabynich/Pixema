@@ -27,14 +27,13 @@ export const Header = ({localSearch, setLocalSearch,navMobileState, setNavMobile
 
 
   
-    useEffect(() => {
-    const timeout = setTimeout(() => {
-      dispatch(setSearch({ rout: currentRout, searchValue: localSearch}));
-    }, 500);
+ useEffect(() => {
+  const timeout = setTimeout(() => {
+    dispatch(setSearch({ rout: currentRout, searchValue: localSearch }));
+  }, 500);
 
-    return () => clearTimeout(timeout);
-  }, [currentRout, localSearch ]);
- 
+  return () => clearTimeout(timeout);
+}, [currentRout, localSearch, dispatch]);
 
    return(
       <header className="header">
@@ -55,7 +54,7 @@ export const Header = ({localSearch, setLocalSearch,navMobileState, setNavMobile
                      </svg>
                   </button>
                </div>
-               { authorizedState?  <UserDropDown/> : <RegButtons/>}  
+               { !authorizedState?  <UserDropDown/> : <RegButtons/>}  
                 <button className='navigate__menu' onClick={() => setNavMobileState(!navMobileState)}>
                    <svg width="40" height="10" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <g clip-path="url(#clip0_44_19)">

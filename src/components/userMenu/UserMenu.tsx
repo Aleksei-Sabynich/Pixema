@@ -20,19 +20,22 @@ export const UserMenu =( {closeMenu}:UserMenuProps)=> {
    const navigate = useNavigate()
 
 
-   useEffect(() => {
-   const handleClick = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-         if (
-            !target.closest('.userMenu_wrap') &&
-            !target.closest('.userDropdown')
-         ) {
-            closeMenu(false);
-         }
-      };
-      document.addEventListener('click', handleClick);
-      return () => document.removeEventListener('click', handleClick);
-   }, []);
+ useEffect(() => {
+  const handleClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+
+    if (
+      !target.closest('.userMenu_wrap') &&
+      !target.closest('.userDropdown')
+    ) {
+      closeMenu(false);
+    }
+  };
+
+  document.addEventListener('click', handleClick);
+  return () => document.removeEventListener('click', handleClick);
+}, [closeMenu]);
+
 
 
    const exitButtonClick = () => {
@@ -46,7 +49,7 @@ export const UserMenu =( {closeMenu}:UserMenuProps)=> {
                <div  className="userMenu_wrap"  >
                   <div className="userMenu_wrap-img">
                      <div className='userMenu_wrap-img-ico'>
-                        <img src={`https://image.tmdb.org/t/p/w185${data?.avatar.tmdb.avatar_path}`} alt="" />
+                        <img src='src/assets/Icon_user.png' alt="" />
                      </div>
                      <p className='userMenu_wrap-img-name'> {data?.name}</p>
                      <p className='userMenu_wrap-img-name'> {data?.username}</p>
