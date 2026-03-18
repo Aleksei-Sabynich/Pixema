@@ -5,6 +5,8 @@ import { offAuthorized } from '../../store/slices/isAuthorizedSlice'
 import { useGetUserInfoQuery } from '../../query/TmdbApi'
 import { useEffect } from 'react'
 import { toggleTheme } from '../../store/slices/themeSlice'
+import dark from '../../assets/dark.svg'
+import ligth from '../../assets/ligth.svg'
 
 
 interface UserMenuProps{
@@ -49,14 +51,14 @@ export const UserMenu =( {closeMenu}:UserMenuProps)=> {
                <div  className="userMenu_wrap"  >
                   <div className="userMenu_wrap-img">
                      <div className='userMenu_wrap-img-ico'>
-                        <img src='public/Icon_user.png' alt="" />
+                        <img src='/Icon_user.png' alt="" />
                      </div>
                      <p className='userMenu_wrap-img-name'> {data?.name}</p>
                      <p className='userMenu_wrap-img-name'> {data?.username}</p>
                      <p className='userMenu_wrap-img-text'> Синхронизируйте данные Chrome</p>
                      <button className='userMenu_wrap-img-btn'> Включить синхронизацию</button>
                       <button className='userMenu__theme-button ' type='button' onClick={()=>dispatch(toggleTheme())}>
-                        { theme === 'dark' ?  <img src="src/assets/dark.svg" alt="" /> : <img src="src/assets/ligth.svg" alt="" />}
+                        { theme === 'dark' ?  <img src={dark} alt="" /> : <img src={ligth} alt="" />}
                      </button>
                   </div>
                   <div className='userMenu_wrap-menu '>

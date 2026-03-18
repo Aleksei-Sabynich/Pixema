@@ -38,9 +38,6 @@
   width: 100%;
   box-sizing: border-box;
   background-color: var(--gray-color);
-  background-image: 
-    linear-gradient(rgba(62, 61, 61, 0.5), rgba(64, 63, 63, 0.5)),
-    url(/accect/bg.jpg);
   background-repeat: no-repeat;
   background-position: 0px 0px, 0px center;
   background-size: cover, cover;
