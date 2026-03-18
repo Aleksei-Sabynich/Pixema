@@ -49,7 +49,7 @@ export const UserMenu =( {closeMenu}:UserMenuProps)=> {
                <div  className="userMenu_wrap"  >
                   <div className="userMenu_wrap-img">
                      <div className='userMenu_wrap-img-ico'>
-                        <img src='src/assets/Icon_user.png' alt="" />
+                        <img src='public/Icon_user.png' alt="" />
                      </div>
                      <p className='userMenu_wrap-img-name'> {data?.name}</p>
                      <p className='userMenu_wrap-img-name'> {data?.username}</p>
